@@ -1,0 +1,21 @@
+name: Daily Page Check
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # täglich 06:00 UTC = 08:00 MESZ
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - run: python scraper.py
+      - uses: actions/upload-artifact@v3
+        with:
+          name: snapshots
+          path: snapshots/
