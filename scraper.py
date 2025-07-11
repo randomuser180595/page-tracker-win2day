@@ -3,7 +3,7 @@ import requests, datetime, os
 URL = "https://www.win2day.at/promotions-gewinnspiele/gewinner-des-tages"          # ← deine Seite
 PROXY = {
     "http":  "http://212.183.88.93:80",   # ← AT‑Proxy
-    "https": "https://77.119.237.96:55654",
+    "https": "https://152.53.166.49:8888",
 }
 
 html   = requests.get(URL, proxies=PROXY, timeout=20).text
